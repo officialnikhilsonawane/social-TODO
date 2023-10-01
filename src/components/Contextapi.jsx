@@ -28,7 +28,7 @@ function reducer(state, action){
     }
 }
 
-export default function gContextapi() {
+export default function Contextapi() {
 
     const [searchQuery, setsearchQuery] = useState("")
     const [post, setPost] = useState(posts)
