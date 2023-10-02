@@ -4,11 +4,11 @@ import styles from './Contextapi.module.css'
 const posts = [
     {
         title: "U.S.A Army",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
     },
     {
         title: "The Society of Army",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
     }
 ]
 
@@ -53,11 +53,11 @@ function Header(){
 
     return (
         <div className={styles.header}>   
-            <h1 className={styles.logo}>Social Magazine</h1>
-            <span className={styles.postCount}>{post.length} post found</span>
+            <p className={styles.logo}>Social Magazine</p>
             <div className={styles.input}>
-                <input className={styles.inputPost} type="text" placeholder="search by title" value={searchQuery} onChange={ (e)=>{ setsearchQuery( e.target.value) }}/>
-                <button onClick={handleClearPost} className={styles.searchPostBtn}>Clear Posts</button>
+                <span className={styles.postCount}>{post.length} post found</span>
+                <input className={styles.searchBox} type="text" value={searchQuery} onChange={ (e)=>{ setsearchQuery( e.target.value) }}/>
+                <button onClick={handleClearPost} className={styles.clearPostBtn}>Clear Posts</button>
             </div>
         </div>
     )
@@ -69,8 +69,8 @@ function DisplayContent(){
         <div className={styles.dispContent}>
                 {post.length > 0 ? post.filter(post=>post.title.toLowerCase().includes(searchQuery)).map((post)=> {
                 return <div className={styles.innerDivContent} key={post.title}>
-                        <span className={styles.title}>{post.title}</span>
-                        <p className={styles.content}>{post.content}</p>
+                        <span className={styles.disptitle}>{post.title}</span>
+                        <p className={styles.dispcontent}>{post.content}</p>
                     </div>
                 }) : null}
         </div>
@@ -97,10 +97,10 @@ function AddPost(){
     return (
         <div className={styles.addPost}>  
             <div className={styles.postTitle}>
-                <input type="text" name="title" value={title} onChange={(e)=> handleData(e)} className={styles.postTitle} placeholder='post title'/>
+                <input type="text" name="title" value={title} onChange={(e)=> handleData(e)} className={styles.title}/>
             </div>
             <div className={styles.postContent}>
-                <textarea className={styles.content} name="content" value={content} onChange={(e)=> handleData(e)} cols="40" rows="1" placeholder='post content'></textarea>
+                <textarea className={styles.content} name="content" value={content} onChange={(e)=> handleData(e)} cols="40" rows="1"></textarea>
             </div>
             <button onClick={handleAddPostDetails} className={styles.addPostBtn}>Add Post</button>
         </div>
