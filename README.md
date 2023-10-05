@@ -1,3 +1,3 @@
 # Social Magazine App
 
-A simple todo list web application.
+Created a simple todo list web app using React.js & Vanilla CSS
